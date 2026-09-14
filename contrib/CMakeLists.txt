@@ -62,4 +62,13 @@ if(WIN32)
     endif (ZLIB_BUILD_ZLIB1_DLL)
 
     option(ZLIB_BUILD_ZLIB1_DLL "Build the legacy zlib + minizip DLL" OFF)
+
+    option(ZLIB_BUILD_ZLIB1_PROXY_DLL
+        "Build a proxy/wrapper DLL named zlib1.dll that forwards calls to the main ZLIB::ZLIB DLL"
+        OFF)
+
+    if (ZLIB_BUILD_ZLIB1_PROXY_DLL)
+        add_subdirectory(zlib1proxy/)
+    endif (ZLIB_BUILD_ZLIB1_PROXY_DLL)
+
 endif(WIN32)
